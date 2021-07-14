@@ -140,7 +140,7 @@ public:
     Radx::si16 julian_date; /* Modified julian date referenced from 1/1/70 */
     Radx::si32 millisecs_past_midnight; /* Time - Millisecs of day from midnight
                                          * (GMT) when file was created */
-    char icao[3];
+    char title_icao[3];
   } vol_title_t;
 
   typedef struct {
