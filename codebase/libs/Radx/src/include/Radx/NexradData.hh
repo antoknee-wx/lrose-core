@@ -138,10 +138,9 @@ public:
     char filetype[9]; /* Filetype: ARCHIVE2, ARV2xxxx */
     char vol_num[3]; /* Volume number 001, 002 etc, often blank */
     Radx::si16 julian_date; /* Modified julian date referenced from 1/1/70 */
-    Radx::si16 unused1;
     Radx::si32 millisecs_past_midnight; /* Time - Millisecs of day from midnight
                                          * (GMT) when file was created */
-    Radx::si32 unused2;
+    char icao[3];
   } vol_title_t;
 
   typedef struct {
