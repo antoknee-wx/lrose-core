@@ -2738,7 +2738,14 @@ int NexradRadxFile::_writeMetaDataHdrs(const RadxVol &vol)
     NexradData::print(title, cerr);
   }
   NexradData::swap(title);
-
+  
+  int nameLen = 4;
+  if (vol.getInstrumentName().size() < 4) {
+    nameLen = vol.getInstrumentName().size();
+  }
+  
+  memcpy(title.title_icao, vol.getInstrumentName().c_str(), nameLen);
+  
   if (fwrite(&title, sizeof(title), 1, _file) != 1) {
     int errNum = errno;
     _addErrStr("ERROR - NexradRadxFile::_writeMetaDataHdrs");
